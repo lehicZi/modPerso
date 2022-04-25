@@ -1,0 +1,9 @@
+{
+  "replace" : false,
+  "values" : [
+    "firstmod:gemwood_wood",
+    "firstmod:gemwood_log",
+    "firstmod:stripped_gemwood_wood",
+    "firstmod:stripped_gemwood_log"
+  ]
+}

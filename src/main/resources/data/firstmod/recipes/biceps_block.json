@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "iii",
+    "iOi",
+    "iii"
+  ],
+  "key": {
+    "i": {
+      "item": "firstmod:biceps"
+    },
+    "O": {
+      "item": "minecraft:iron_block"
+    }
+  },
+  "result": {
+    "item": "firstmod:biceps_block"
+  }
+}

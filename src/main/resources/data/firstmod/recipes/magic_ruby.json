@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "i i",
+    "ioi",
+    "i i"
+  ],
+  "key": {
+    "i": {
+      "tag": "forge:gems/ruby"
+    }
+  ,
+    "o": {
+      "item": "minecraft:blaze_powder"
+    }
+  },
+  "result": {
+    "item": "firstmod:magic_ruby"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ooo",
+    "o o"
+  ],
+  "key": {
+    "o": {
+      "tag": "forge:gems/ruby"
+    }
+  },
+  "result": {
+    "item": "firstmod:ruby_helmet"
+  }
+}

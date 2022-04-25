@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "o",
+    "i",
+    "i"
+  ],
+  "key": {
+    "o": {
+      "tag": "forge:gems/ruby"
+    }
+  ,
+    "i": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "firstmod:ruby_shovel"
+  }
+}

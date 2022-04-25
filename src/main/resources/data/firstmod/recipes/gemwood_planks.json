@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "firstmod:gemwood_logs"
+    }
+  ],
+  "result": {
+    "item": "firstmod:gemwood_planks",
+    "count": 4
+  }
+}
