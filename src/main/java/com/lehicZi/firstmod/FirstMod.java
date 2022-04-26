@@ -3,9 +3,13 @@ package com.lehicZi.firstmod;
 import com.google.common.collect.ImmutableMap;
 import com.ibm.icu.impl.locale.XCldrStub;
 import com.lehicZi.firstmod.block.ModBlocks;
+import com.lehicZi.firstmod.container.ModContainers;
 import com.lehicZi.firstmod.item.ModItems;
+import com.lehicZi.firstmod.screen.RepairatorScreen;
+import com.lehicZi.firstmod.tileentity.ModTileEntities;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.AxeItem;
@@ -41,6 +45,10 @@ public class FirstMod
         ModItems.register(eventBus);
         //Register blocks in ModBlocks
         ModBlocks.register(eventBus);
+        //Register mod TileEntities
+        ModTileEntities.register(eventBus);
+        //Register mod Containers
+        ModContainers.register(eventBus);
         // Register the setup method for modloading
         eventBus.addListener(this::setup);
         // Register the enqueueIMC method for modloading
@@ -75,6 +83,10 @@ public class FirstMod
 
             RenderTypeLookup.setRenderLayer(ModBlocks.GEMWOOD_LEAVES.get(), RenderType.getCutout());
             RenderTypeLookup.setRenderLayer(ModBlocks.GEMWOOD_SAPLING.get(), RenderType.getCutout());
+            RenderTypeLookup.setRenderLayer(ModBlocks.PLOP.get(), RenderType.getCutout());
+
+            ScreenManager.registerFactory((ModContainers.REPAIRATOR_CONTAINER.get()),
+                    RepairatorScreen::new);
 
         });
     }

@@ -5,8 +5,10 @@
       "item": "firstmod:hop"
     },
     {
-      "item": "minecraft:wheat",
-      "count": 2
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "minecraft:wheat"
     },
     {
       "item": "minecraft:glass_bottle"

@@ -91,6 +91,24 @@ public class MagicRuby extends Item {
         super.addInformation(itemStack, world, tooltip, flag);
     }
 
+    @Override
+    public ItemStack getContainerItem(ItemStack itemStack) {
+        ItemStack container = itemStack.copy();
+
+        if(container.attemptDamageItem(50, random, null)){
+            return ItemStack.EMPTY;
+        }
+        else {
+            return container;
+        }
+
+    }
+
+    @Override
+    public boolean hasContainerItem(ItemStack stack) {
+        return true;
+    }
+
     //Applies positive or negative potion effect randomly
     private void rightClickOnAir(PlayerEntity player) {
             //Positive or negative potion effect

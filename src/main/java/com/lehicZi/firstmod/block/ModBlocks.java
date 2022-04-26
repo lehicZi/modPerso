@@ -3,6 +3,7 @@ package com.lehicZi.firstmod.block;
 import com.lehicZi.firstmod.FirstMod;
 import com.lehicZi.firstmod.block.custom.HopBlock;
 import com.lehicZi.firstmod.block.custom.MagicRubyBlock;
+import com.lehicZi.firstmod.block.custom.RepairatorBlock;
 import com.lehicZi.firstmod.block.custom.trees.GemwoodTree;
 import com.lehicZi.firstmod.item.ModItemGroup;
 import com.lehicZi.firstmod.item.ModItems;
@@ -11,6 +12,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.trees.OakTree;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.potion.Effects;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
@@ -136,6 +138,12 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> GEMWOOD_SAPLING = registerBlock("gemwood_sapling",
             () -> new SaplingBlock(new GemwoodTree(), AbstractBlock.Properties.from(Blocks.OAK_SAPLING)));
+
+    public static final RegistryObject<Block> PLOP = registerBlock("plop",
+            () -> new FlowerBlock(Effects.NAUSEA,1600 , AbstractBlock.Properties.from(Blocks.DANDELION)));
+
+    public static final RegistryObject<Block> REPAIRATOR = registerBlock("repairator",
+            () -> new RepairatorBlock(AbstractBlock.Properties.create(Material.IRON)));
 
 
     // Regiqters and creates a block and the blockitem.

@@ -113,6 +113,10 @@ public class ModItems {
                             build()).
                     group(ModItemGroup.FIRSTMOD_GROUP)));
 
+    public static final RegistryObject<Item> RUBY_HORSE_ARMOR = ITEMS.register("ruby_horse_armor", () ->
+            new HorseArmorItem(13,"ruby" ,
+                    new Item.Properties().group(ModItemGroup.FIRSTMOD_GROUP)));
+
 
     // registers method call in mod's main class
     public static void register(IEventBus eventBus){
