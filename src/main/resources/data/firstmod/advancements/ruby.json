@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "firstmod:ruby"
+    },
+    "title": "Got to rub' !",
+    "description": "You get your first ruby",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "firstmod:ruby"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {}
+}

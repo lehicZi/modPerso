@@ -1,9 +1,7 @@
 package com.lehicZi.firstmod.block;
 
 import com.lehicZi.firstmod.FirstMod;
-import com.lehicZi.firstmod.block.custom.HopBlock;
-import com.lehicZi.firstmod.block.custom.MagicRubyBlock;
-import com.lehicZi.firstmod.block.custom.RepairatorBlock;
+import com.lehicZi.firstmod.block.custom.*;
 import com.lehicZi.firstmod.block.custom.trees.GemwoodTree;
 import com.lehicZi.firstmod.item.ModItemGroup;
 import com.lehicZi.firstmod.item.ModItems;
@@ -144,6 +142,12 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> REPAIRATOR = registerBlock("repairator",
             () -> new RepairatorBlock(AbstractBlock.Properties.create(Material.IRON)));
+
+    public static final RegistryObject<Block> GEMWOOD_SIGN = BLOCKS.register("gemwood_sign",
+            () -> new ModStandingSignBlock(AbstractBlock.Properties.create(Material.IRON), ModWoodTypes.GEMWOOD));
+
+    public static final RegistryObject<Block> GEMWOOD_WALL_SIGN = BLOCKS.register("gemwood_wall_sign",
+            () -> new ModWallSignBlock(AbstractBlock.Properties.create(Material.IRON), ModWoodTypes.GEMWOOD));
 
 
     // Regiqters and creates a block and the blockitem.

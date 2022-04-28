@@ -11,6 +11,8 @@ import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.inventory.container.RecipeBookContainer;
+import net.minecraft.particles.ParticleType;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
@@ -23,6 +25,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
 
 import javax.annotation.Nullable;
+import java.util.Random;
 
 public class RepairatorBlock extends Block {
     public RepairatorBlock(Properties p_i48440_1_) {
@@ -77,5 +80,23 @@ public class RepairatorBlock extends Block {
                 return new ReparatorContainer(i, world, pos, playerInventory, player);
             }
         };
+    }
+
+    @Override
+    public void animateTick(BlockState blockState, World world, BlockPos blockPos, Random random) {
+
+        float chance = 0.35f;
+        if (chance < random.nextFloat()){
+
+            world.addParticle(ParticleTypes.ENCHANT,
+                    blockPos.getX() + random.nextDouble(),
+                    blockPos.getY() + 1,
+                    blockPos.getZ() + random.nextDouble(),
+                    0.05d, 0.05d, 0.05d);
+
+
+        }
+
+        super.animateTick(blockState, world, blockPos, random);
     }
 }

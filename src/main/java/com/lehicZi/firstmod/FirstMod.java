@@ -3,21 +3,27 @@ package com.lehicZi.firstmod;
 import com.google.common.collect.ImmutableMap;
 import com.ibm.icu.impl.locale.XCldrStub;
 import com.lehicZi.firstmod.block.ModBlocks;
+import com.lehicZi.firstmod.block.custom.ModWoodTypes;
 import com.lehicZi.firstmod.container.ModContainers;
 import com.lehicZi.firstmod.item.ModItems;
 import com.lehicZi.firstmod.screen.RepairatorScreen;
 import com.lehicZi.firstmod.tileentity.ModTileEntities;
+import com.lehicZi.firstmod.world.structure.ModStructures;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.WoodType;
 import net.minecraft.client.gui.ScreenManager;
+import net.minecraft.client.renderer.Atlases;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.client.renderer.tileentity.SignTileEntityRenderer;
 import net.minecraft.item.AxeItem;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -49,6 +55,8 @@ public class FirstMod
         ModTileEntities.register(eventBus);
         //Register mod Containers
         ModContainers.register(eventBus);
+        //Register structures
+        ModStructures.register(eventBus);
         // Register the setup method for modloading
         eventBus.addListener(this::setup);
         // Register the enqueueIMC method for modloading
@@ -69,7 +77,8 @@ public class FirstMod
                     .put(ModBlocks.GEMWOOD_LOG.get(), ModBlocks.STRIPPED_GEMWOOD_LOG.get())
                     .put(ModBlocks.GEMWOOD_WOOD.get(), ModBlocks.STRIPPED_GEMWOOD_WOOD.get()).build();
 
-
+            ModStructures.setupStructures();
+            WoodType.register(ModWoodTypes.GEMWOOD);
         });
     }
 
@@ -87,6 +96,10 @@ public class FirstMod
 
             ScreenManager.registerFactory((ModContainers.REPAIRATOR_CONTAINER.get()),
                     RepairatorScreen::new);
+
+            ClientRegistry.bindTileEntityRenderer(ModTileEntities.SIGN_TILE_ENTITIES.get(),
+                    SignTileEntityRenderer::new);
+            Atlases.addWoodType(ModWoodTypes.GEMWOOD);
 
         });
     }

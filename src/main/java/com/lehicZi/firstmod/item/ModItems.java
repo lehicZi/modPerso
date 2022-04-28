@@ -117,6 +117,10 @@ public class ModItems {
             new HorseArmorItem(13,"ruby" ,
                     new Item.Properties().group(ModItemGroup.FIRSTMOD_GROUP)));
 
+    public static final RegistryObject<Item> GEMWOOD_SIGN = ITEMS.register("gemwood_sign", () ->
+            new SignItem(new Item.Properties().maxStackSize(16).group(ModItemGroup.FIRSTMOD_GROUP),
+                    ModBlocks.GEMWOOD_SIGN.get(), ModBlocks.GEMWOOD_WALL_SIGN.get()));
+
 
     // registers method call in mod's main class
     public static void register(IEventBus eventBus){

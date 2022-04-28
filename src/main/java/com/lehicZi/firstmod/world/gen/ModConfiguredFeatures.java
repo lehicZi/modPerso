@@ -10,6 +10,8 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.foliageplacer.BlobFoliagePlacer;
 import net.minecraft.world.gen.trunkplacer.StraightTrunkPlacer;
 
+import java.util.ArrayList;
+
 public class ModConfiguredFeatures {
 
     private static <FC extends IFeatureConfig> ConfiguredFeature<FC, ?> register(String key, ConfiguredFeature<FC, ?> configuredFeature) {
@@ -26,7 +28,9 @@ public class ModConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> PLOP_CONFIG = register("flower_plain", Feature.FLOWER.withConfiguration((
             new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider((ModBlocks.PLOP.get().getDefaultState())),
-                    SimpleBlockPlacer.PLACER)).tries(3).build()))
+                    SimpleBlockPlacer.PLACER)).tries(1).build()))
             .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).count(1);
+
+
 
 }

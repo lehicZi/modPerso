@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "i i",
+    "ioi",
+    "i i"
+  ],
+  "key": {
+    "i": {
+      "tag": "minecraft:music_discs"
+    }
+  ,
+    "o": {
+      "item": "firstmod:magic_ruby_block"
+    }
+  },
+  "result": {
+    "item": "firstmod:repairator"
+  }
+}
