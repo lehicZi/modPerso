@@ -23,6 +23,7 @@
   "item.firstmod.beer": "Beer",
   "item.firstmod.ruby_horse_armor": "Ruby Horse Armor",
   "item.firstmod.gemwood_sign": "Gemwood Sign",
+  "item.firstmod.redwater_bucket": "Redwater Bucket",
 
   "block.firstmod.biceps_block": "Biceps Block",
   "block.firstmod.ruby_ore": "Ruby Ore",
@@ -48,11 +49,15 @@
   "block.firstmod.repairator": "Repairator",
   "block.firstmod.gemwood_sign": "Gemwood Sign",
   "block.firstmod.gemwood_wall_sign": "Gemwood Wall Sign",
+  "block.firstmod.lightning_crafter": "Lightning Crafter",
+
+  "fluid.firstmod.redwater": "Redwater",
 
   "itemGroup.firstModTab": "First mod",
 
   "tooltip.firstmod.magic_ruby_shift" : "On air : gives you positive or negative potion effect.\nOn block : destroys and drops the block.",
   "tooltip.firstmod.magic_ruby" : "Press \u00A7eSHIFT\u00A7r for more information !",
 
-  "screen.firstmod.repairator": "Repairator"
+  "screen.firstmod.repairator": "Repairator",
+  "screen.firstmod.lightning_crafter": "Lightning Crafter"
 }

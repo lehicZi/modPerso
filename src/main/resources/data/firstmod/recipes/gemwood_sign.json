@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ooo",
+    "ooo",
+    " i "
+  ],
+  "key": {
+    "o": {
+      "item": "firstmod:gemwood_planks"
+    }
+  ,
+    "i": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "firstmod:gemwood_sign",
+    "count" : 3
+  }
+}

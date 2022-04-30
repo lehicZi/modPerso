@@ -23,6 +23,14 @@ public class ModContainers {
                         return new ReparatorContainer(windowId ,world, pos, inv, inv.player);
                     }));
 
+    public static final RegistryObject<ContainerType<LightningCrafterContainer>> LIGHTNING_CRAFTER_CONTAINER =
+            CONTAINERS.register("lightning_crafter_container",
+                    () -> IForgeContainerType.create((windowId, inv, data) -> {
+                        BlockPos pos = data.readBlockPos();
+                        World world = inv.player.getEntityWorld();
+                        return new LightningCrafterContainer(windowId ,world, pos, inv, inv.player);
+                    }));
+
 
     public static void register(IEventBus eventBus){
         CONTAINERS.register(eventBus);

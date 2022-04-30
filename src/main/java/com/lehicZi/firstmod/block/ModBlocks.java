@@ -149,6 +149,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> GEMWOOD_WALL_SIGN = BLOCKS.register("gemwood_wall_sign",
             () -> new ModWallSignBlock(AbstractBlock.Properties.create(Material.IRON), ModWoodTypes.GEMWOOD));
 
+    public static final RegistryObject<Block> LIGHTNING_CRAFTER = registerBlock("lightning_crafter",
+            () -> new LightningCrafterBlock(AbstractBlock.Properties.create(Material.IRON)));
+
 
     // Regiqters and creates a block and the blockitem.
     private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block){

@@ -5,7 +5,10 @@ import com.ibm.icu.impl.locale.XCldrStub;
 import com.lehicZi.firstmod.block.ModBlocks;
 import com.lehicZi.firstmod.block.custom.ModWoodTypes;
 import com.lehicZi.firstmod.container.ModContainers;
+import com.lehicZi.firstmod.data.recipes.ModRecipeTypes;
+import com.lehicZi.firstmod.fluid.ModFluids;
 import com.lehicZi.firstmod.item.ModItems;
+import com.lehicZi.firstmod.screen.LightningCrafterScreen;
 import com.lehicZi.firstmod.screen.RepairatorScreen;
 import com.lehicZi.firstmod.tileentity.ModTileEntities;
 import com.lehicZi.firstmod.world.structure.ModStructures;
@@ -46,6 +49,7 @@ public class FirstMod
     private static final Logger LOGGER = LogManager.getLogger();
 
     public FirstMod() {
+
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
         // Register items in ModItems
         ModItems.register(eventBus);
@@ -57,6 +61,12 @@ public class FirstMod
         ModContainers.register(eventBus);
         //Register structures
         ModStructures.register(eventBus);
+        //Refister mod fluids
+        ModFluids.register(eventBus);
+        //Register mod custom recipes
+        ModRecipeTypes.register(eventBus);
+
+
         // Register the setup method for modloading
         eventBus.addListener(this::setup);
         // Register the enqueueIMC method for modloading
@@ -96,10 +106,16 @@ public class FirstMod
 
             ScreenManager.registerFactory((ModContainers.REPAIRATOR_CONTAINER.get()),
                     RepairatorScreen::new);
+            ScreenManager.registerFactory((ModContainers.LIGHTNING_CRAFTER_CONTAINER.get()),
+                    LightningCrafterScreen::new);
 
             ClientRegistry.bindTileEntityRenderer(ModTileEntities.SIGN_TILE_ENTITIES.get(),
                     SignTileEntityRenderer::new);
             Atlases.addWoodType(ModWoodTypes.GEMWOOD);
+
+            RenderTypeLookup.setRenderLayer(ModFluids.REDWATER_FLUID.get(), RenderType.getTranslucent());
+            RenderTypeLookup.setRenderLayer(ModFluids.REDWATER_FLOWING.get(), RenderType.getTranslucent());
+            RenderTypeLookup.setRenderLayer(ModFluids.REDWATER_BLOCK.get(), RenderType.getTranslucent());
 
         });
     }

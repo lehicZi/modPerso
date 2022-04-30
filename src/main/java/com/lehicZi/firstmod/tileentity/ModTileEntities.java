@@ -25,6 +25,10 @@ public class ModTileEntities {
                             ModBlocks.GEMWOOD_WALL_SIGN.get())
                     .build(null));
 
+    public static RegistryObject<TileEntityType<LightningCrafterTile>> LIGHTNING_CRAFTER_TILE =
+            TILE_ENTITIES.register("lightning_crafter_tile", () -> TileEntityType.Builder.create(
+                    LightningCrafterTile::new, ModBlocks.LIGHTNING_CRAFTER.get()).build(null));
+
     public static void register(IEventBus eventBus){
         TILE_ENTITIES.register(eventBus);
     }

@@ -2,6 +2,7 @@ package com.lehicZi.firstmod.item;
 
 import com.lehicZi.firstmod.FirstMod;
 import com.lehicZi.firstmod.block.ModBlocks;
+import com.lehicZi.firstmod.fluid.ModFluids;
 import com.lehicZi.firstmod.item.custom.MagicRuby;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
@@ -24,7 +25,7 @@ public class ModItems {
             new Item(new Item.Properties().group(ModItemGroup.FIRSTMOD_GROUP)));
 
     public static final RegistryObject<Item> MAGIC_RUBY = ITEMS.register("magic_ruby", () ->
-            new MagicRuby(new Item.Properties().group(ModItemGroup.FIRSTMOD_GROUP).maxDamage(200)));
+            new MagicRuby(new Item.Properties().maxStackSize(1).group(ModItemGroup.FIRSTMOD_GROUP).maxDamage(200)));
 
     public static final RegistryObject<Item> RUBY_SWORD = ITEMS.register("ruby_sword", () ->
             new SwordItem(ModItemTier.RUBY, 3, -2.4f,
@@ -120,6 +121,10 @@ public class ModItems {
     public static final RegistryObject<Item> GEMWOOD_SIGN = ITEMS.register("gemwood_sign", () ->
             new SignItem(new Item.Properties().maxStackSize(16).group(ModItemGroup.FIRSTMOD_GROUP),
                     ModBlocks.GEMWOOD_SIGN.get(), ModBlocks.GEMWOOD_WALL_SIGN.get()));
+
+    public static final RegistryObject<Item> REDWATER_BUCKET = ITEMS.register("redwater_bucket", () ->
+            new BucketItem(() -> ModFluids.REDWATER_FLUID.get(),
+                    new Item.Properties().maxStackSize(1).group(ModItemGroup.FIRSTMOD_GROUP)));
 
 
     // registers method call in mod's main class
