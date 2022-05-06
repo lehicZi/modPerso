@@ -1,5 +1,6 @@
 package com.lehicZi.firstmod.tileentity;
 
+import com.lehicZi.firstmod.util.ModSoundEvents;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -7,6 +8,7 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.SoundCategory;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
@@ -99,6 +101,7 @@ public class RipairitorTile extends TileEntity implements ITickableTileEntity{
 
         if (hasReparableItemIn){
             isRepairing = true;
+            world.playSound(null, pos, ModSoundEvents.SMALL_EXPLOSION.get(), SoundCategory.BLOCKS, 1, 1);
             stackInSlot.setDamage(stackInSlot.getDamage() - 1);
         }
 
@@ -111,6 +114,9 @@ public class RipairitorTile extends TileEntity implements ITickableTileEntity{
     //Called on each tick
     @Override
     public void tick() {
+        if(world.isRemote){
+            return;
+        }
         if (world.getWorldInfo().getGameTime() % 20 == 0) { //Every s
             repairing();
         }

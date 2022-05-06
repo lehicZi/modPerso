@@ -2,8 +2,10 @@ package com.lehicZi.firstmod.item;
 
 import com.lehicZi.firstmod.FirstMod;
 import com.lehicZi.firstmod.block.ModBlocks;
+import com.lehicZi.firstmod.entity.ModEntityTypes;
 import com.lehicZi.firstmod.fluid.ModFluids;
-import com.lehicZi.firstmod.item.custom.MagicRuby;
+import com.lehicZi.firstmod.item.custom.*;
+import com.lehicZi.firstmod.util.ModSoundEvents;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraft.potion.EffectInstance;
@@ -19,7 +21,8 @@ public class ModItems {
 
     // New Items
     public static final RegistryObject<Item> BICEPS = ITEMS.register("biceps", () ->
-            new Item(new Item.Properties().group(ModItemGroup.FIRSTMOD_GROUP)));
+            new Biceps(ModItemTier.RUBY, 2, -2f,
+                    new Item.Properties().group(ModItemGroup.FIRSTMOD_GROUP)));
 
     public static final RegistryObject<Item> RUBY = ITEMS.register("ruby", () ->
             new Item(new Item.Properties().group(ModItemGroup.FIRSTMOD_GROUP)));
@@ -125,6 +128,21 @@ public class ModItems {
     public static final RegistryObject<Item> REDWATER_BUCKET = ITEMS.register("redwater_bucket", () ->
             new BucketItem(() -> ModFluids.REDWATER_FLUID.get(),
                     new Item.Properties().maxStackSize(1).group(ModItemGroup.FIRSTMOD_GROUP)));
+
+    public static final RegistryObject<ModSpawnEggItem> LELE_LE_FOU_SPAWN_EGG = ITEMS.register("lele_le_fou_spawn_egg", () ->
+            new ModSpawnEggItem(ModEntityTypes.LELE_LE_FOU, 0xd6e2eb, 0xd8220b,
+                    new Item.Properties().group(ModItemGroup.FIRSTMOD_GROUP)));
+
+    public static final RegistryObject<Item> RUBY_BOW = ITEMS.register("ruby_bow", () ->
+            new CustomBow(3d, 2, 12,
+                    new Item.Properties().group(ModItemGroup.FIRSTMOD_GROUP).maxDamage(1700)));
+
+    public static final RegistryObject<Item> GS_FATA = ITEMS.register("gs_fata", () ->
+            new FatalisGS(ModItemTier.RUBY, 30, -3f ,new Item.Properties().group(ModItemGroup.FIRSTMOD_GROUP)));
+
+    public static final RegistryObject<Item> PEOPLE_EQUALS_SHIT_DISK = ITEMS.register("people_equals_shit_disk", () ->
+            new MusicDiscItem(1, () -> ModSoundEvents.PEOPLE_EQUALS_SHIT.get()
+                    ,new Item.Properties().group(ModItemGroup.FIRSTMOD_GROUP)));
 
 
     // registers method call in mod's main class

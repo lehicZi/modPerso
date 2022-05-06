@@ -1,5 +1,19 @@
 {
   "variants": {
-    "": {"model" :  "firstmod:block/lightning_crafter"}
+    "facing=east": {
+      "model": "firstmod:block/lightning_crafter",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "firstmod:block/lightning_crafter"
+    },
+    "facing=south": {
+      "model": "firstmod:block/lightning_crafter",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "firstmod:block/lightning_crafter",
+      "y": 270
+    }
   }
 }

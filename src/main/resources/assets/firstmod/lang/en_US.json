@@ -24,6 +24,10 @@
   "item.firstmod.ruby_horse_armor": "Ruby Horse Armor",
   "item.firstmod.gemwood_sign": "Gemwood Sign",
   "item.firstmod.redwater_bucket": "Redwater Bucket",
+  "item.firstmod.lele_le_fou_spawn_egg": "Lélé le Fou Spawn Egg",
+  "item.firstmod.ruby_bow": "Ruby Bow",
+  "item.firstmod.gs_fata": "Fatalis GS",
+  "item.firstmod.people_equals_shit_disk": "People Equals Shit - Slipknot",
 
   "block.firstmod.biceps_block": "Biceps Block",
   "block.firstmod.ruby_ore": "Ruby Ore",
@@ -59,5 +63,11 @@
   "tooltip.firstmod.magic_ruby" : "Press \u00A7eSHIFT\u00A7r for more information !",
 
   "screen.firstmod.repairator": "Repairator",
-  "screen.firstmod.lightning_crafter": "Lightning Crafter"
+  "screen.firstmod.lightning_crafter": "Lightning\nCrafter",
+
+  "entity.firstmod.lele_le_fou": "Lélé le Fou",
+
+  "biome.firstmod.gem_lands_biome": "Gem Lands",
+
+  "item.firstmod.people_equals_shit_disk.desc": "People Equals Shit - Slipknot"
 }

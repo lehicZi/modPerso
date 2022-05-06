@@ -1,0 +1,6 @@
+{
+    "parent": "firstmod:item/ruby_bow",
+    "textures": {
+        "layer0": "firstmod:item/ruby_bow_pulling_1"
+    }
+}

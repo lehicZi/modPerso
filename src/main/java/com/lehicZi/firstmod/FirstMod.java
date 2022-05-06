@@ -6,11 +6,17 @@ import com.lehicZi.firstmod.block.ModBlocks;
 import com.lehicZi.firstmod.block.custom.ModWoodTypes;
 import com.lehicZi.firstmod.container.ModContainers;
 import com.lehicZi.firstmod.data.recipes.ModRecipeTypes;
+import com.lehicZi.firstmod.entity.ModEntityTypes;
+import com.lehicZi.firstmod.entity.render.LeleLeFouRenderer;
 import com.lehicZi.firstmod.fluid.ModFluids;
 import com.lehicZi.firstmod.item.ModItems;
 import com.lehicZi.firstmod.screen.LightningCrafterScreen;
 import com.lehicZi.firstmod.screen.RepairatorScreen;
 import com.lehicZi.firstmod.tileentity.ModTileEntities;
+import com.lehicZi.firstmod.util.ModItemModelProperties;
+import com.lehicZi.firstmod.util.ModSoundEvents;
+import com.lehicZi.firstmod.world.biome.ModBiomes;
+import com.lehicZi.firstmod.world.gen.ModBiomeGeneration;
 import com.lehicZi.firstmod.world.structure.ModStructures;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -20,13 +26,17 @@ import net.minecraft.client.renderer.Atlases;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.tileentity.SignTileEntityRenderer;
+import net.minecraft.entity.EntitySpawnPlacementRegistry;
+import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.item.AxeItem;
+import net.minecraft.world.gen.Heightmap;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -36,6 +46,8 @@ import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import top.theillusivec4.curios.api.SlotTypeMessage;
+import top.theillusivec4.curios.api.SlotTypePreset;
 
 import java.util.stream.Collectors;
 
@@ -65,7 +77,12 @@ public class FirstMod
         ModFluids.register(eventBus);
         //Register mod custom recipes
         ModRecipeTypes.register(eventBus);
-
+        //Register mod custom sounds
+        ModSoundEvents.register(eventBus);
+        //Register mod entities
+        ModEntityTypes.register(eventBus);
+        //Register mod Biomes
+        ModBiomes.register(eventBus);
 
         // Register the setup method for modloading
         eventBus.addListener(this::setup);
@@ -89,6 +106,12 @@ public class FirstMod
 
             ModStructures.setupStructures();
             WoodType.register(ModWoodTypes.GEMWOOD);
+
+            EntitySpawnPlacementRegistry.register(ModEntityTypes.LELE_LE_FOU.get(), EntitySpawnPlacementRegistry.PlacementType.ON_GROUND,
+                    Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MonsterEntity::canMonsterSpawn);
+
+            ModBiomeGeneration.generateBiomes();
+
         });
     }
 
@@ -97,6 +120,7 @@ public class FirstMod
         event.enqueueWork(() -> {
             RenderTypeLookup.setRenderLayer(ModBlocks.RUBY_DOOR.get(), RenderType.getCutout());
             RenderTypeLookup.setRenderLayer(ModBlocks.RUBY_TRPDOOR.get(), RenderType.getCutout());
+            RenderTypeLookup.setRenderLayer(ModBlocks.LIGHTNING_CRAFTER.get(), RenderType.getCutout());
 
             RenderTypeLookup.setRenderLayer(ModBlocks.HOP.get(), RenderType.getCutout());
 
@@ -117,13 +141,21 @@ public class FirstMod
             RenderTypeLookup.setRenderLayer(ModFluids.REDWATER_FLOWING.get(), RenderType.getTranslucent());
             RenderTypeLookup.setRenderLayer(ModFluids.REDWATER_BLOCK.get(), RenderType.getTranslucent());
 
+            ModItemModelProperties.makeBow(ModItems.RUBY_BOW.get());
+
         });
+
+        RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.LELE_LE_FOU.get(), LeleLeFouRenderer::new);
+
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)
     {
-        // some example code to dispatch IMC to another mod
-        InterModComms.sendTo("examplemod", "helloworld", () -> { LOGGER.info("Hello world from the MDK"); return "Hello world";});
+        InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE,
+                () -> SlotTypePreset.CHARM.getMessageBuilder().build());
+
+        InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE,
+                () -> SlotTypePreset.HANDS.getMessageBuilder().build());
     }
 
     private void processIMC(final InterModProcessEvent event)

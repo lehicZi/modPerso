@@ -150,7 +150,7 @@ public class ModBlocks {
             () -> new ModWallSignBlock(AbstractBlock.Properties.create(Material.IRON), ModWoodTypes.GEMWOOD));
 
     public static final RegistryObject<Block> LIGHTNING_CRAFTER = registerBlock("lightning_crafter",
-            () -> new LightningCrafterBlock(AbstractBlock.Properties.create(Material.IRON)));
+            () -> new LightningCrafterBlock(AbstractBlock.Properties.create(Material.IRON).notSolid()));
 
 
     // Regiqters and creates a block and the blockitem.

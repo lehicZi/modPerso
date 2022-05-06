@@ -8,9 +8,9 @@
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": true,
-    "hidden": false
+    "hidden": false,
+    "background": "firstmod:textures/block/ruby_block.png"
   },
-  "parent": "firstmod:first_mod",
   "criteria": {
     "requirement": {
       "trigger": "minecraft:inventory_changed",

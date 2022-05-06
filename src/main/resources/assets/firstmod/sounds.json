@@ -1,0 +1,24 @@
+{
+  "small_explosion": {
+    "category": "blocks",
+    "subtitle": "firstmod.small_explosion",
+    "sounds": [
+      "firstmod:small_explosion"
+    ]
+  },
+  "lele_le_fou_wesh": {
+    "category": "entities",
+    "subtitle": "firstmod.lele_le_fou_wesh",
+    "sounds": [
+      "firstmod:lele_le_fou_wesh"
+    ]
+  },
+  "people_equals_shit": {
+    "sounds": [
+      {
+        "name": "firstmod:people_equals_shit",
+        "stream": true
+      }
+    ]
+  }
+}

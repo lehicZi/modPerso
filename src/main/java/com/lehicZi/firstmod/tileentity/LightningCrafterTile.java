@@ -134,10 +134,10 @@ public class LightningCrafterTile extends TileEntity implements ITickableTileEnt
     @Override
     public void tick() {
         if(world.isRemote){
-
             return;
-
         }
+
+        craft();
 
     }
 }
